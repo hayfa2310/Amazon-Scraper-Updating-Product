@@ -85,7 +85,7 @@ class ProductUpdateSpider(scrapy.Spider):
         return (today - review_date.date()).days <= self.days
 
     def parse(self, response):
-        # self.logger.info('Proxy ip address is %s', response.headers['X-Crawlera-Slave'])
+        self.logger.info('Proxy ip address is %s', response.headers['X-Crawlera-Slave'])
 
         if 'CAPTCHA' in response.xpath("//title/text()").extract():
             print("Warning Captcha detected !")
